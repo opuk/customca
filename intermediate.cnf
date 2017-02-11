@@ -7,7 +7,7 @@ default_ca = CA_default
 
 [ CA_default ]
 # Directory and file locations.
-dir               = /root/ca/intermediate
+dir               = .
 certs             = $dir/certs
 crl_dir           = $dir/crl
 new_certs_dir     = $dir/newcerts
@@ -78,11 +78,11 @@ commonName                      = Common Name
 emailAddress                    = Email Address
 
 # Optionally, specify some defaults.
-countryName_default             = GB
-stateOrProvinceName_default     = England
+countryName_default             = SE
+stateOrProvinceName_default     = Stockholm
 localityName_default            =
-0.organizationName_default      = Alice Ltd
-organizationalUnitName_default  =
+0.organizationName_default      = opuk lab
+organizationalUnitName_default  = opuk lab intermediate
 emailAddress_default            =
 
 [ v3_ca ]

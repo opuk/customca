@@ -2,6 +2,7 @@
 
 mkdir -p ca
 pushd ca
+
 #init root ca
 ln -s ../root.cnf openssl.cnf
 mkdir certs crl newcerts private
@@ -14,7 +15,7 @@ openssl genrsa -aes256 -out private/ca.key 4096
 chmod 400 private/ca.key
 
 openssl req -config openssl.cnf \
-        -key private/ca.key.pem \
+        -key private/ca.key \
         -new -x509 -days 365 -sha256 -extensions v3_ca
         -out certs/ca.crt
 
@@ -29,9 +30,9 @@ mkdir certs crl csr newcerts private
 echo 1000 > crlnumber
 
 openssl genrsa -aes256 \
-        -out private/intermediate.key.pem 4096
+        -out private/intermediate.key 4096
 
-chmod 400 private/intermediate.key.pem
+chmod 400 private/intermediate.key
 
 openssl req -config openssl.cnf -new -sha256 \
       -key private/intermediate.key \
@@ -48,6 +49,6 @@ chmod 444 intermediate/certs/intermediate.crt
 
 #create ca-chain file to distribute
 
-cat intermediate/certs/intermediate.crt certs/ca.crt > intermediate/certs/ca-chain.crt
+cat intermediate/certs/intermediate.crt certs/ca.crt > intermediate/certs/ca-chain.pem
 
 popd
