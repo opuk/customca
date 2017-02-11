@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 #Signing CSR with intermediate CA
 
 pushd ca/intermediate

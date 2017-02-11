@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 #Generates a key and CSR
 
 pushd ca/intermediate
