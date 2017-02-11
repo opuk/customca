@@ -1,4 +1,5 @@
 #!/bin/bash
+#Sets up a root CA and a intermediate CA
 
 mkdir -p ca
 pushd ca
@@ -16,7 +17,7 @@ chmod 400 private/ca.key
 
 openssl req -config openssl.cnf \
         -key private/ca.key \
-        -new -x509 -days 365 -sha256 -extensions v3_ca
+        -new -x509 -days 365 -sha256 -extensions v3_ca \
         -out certs/ca.crt
 
 openssl x509 -noout -text -in certs/ca.crt
@@ -28,6 +29,9 @@ ln -s ../../intermediate.cnf openssl.cnf
 
 mkdir certs crl csr newcerts private
 echo 1000 > crlnumber
+chmod 700 private
+touch index.txt
+echo 1000 > serial
 
 openssl genrsa -aes256 \
         -out private/intermediate.key 4096
