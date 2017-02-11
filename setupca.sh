@@ -49,3 +49,5 @@ chmod 444 intermediate/certs/intermediate.crt
 #create ca-chain file to distribute
 
 cat intermediate/certs/intermediate.crt certs/ca.crt > intermediate/certs/ca-chain.crt
+
+popd
