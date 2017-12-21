@@ -3,6 +3,7 @@
 
 mkdir -p ca
 pushd ca
+export SUBJECTALTNAMERAW=''
 
 #init root ca
 ln -s ../root.cnf openssl.cnf
