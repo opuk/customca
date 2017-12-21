@@ -1,6 +1,8 @@
 #!/bin/bash 
 #Signing CSR with intermediate CA
 
+export SUBJECTALTNAMERAW="DNS:$1, DNS:www.$1"
+
 pushd ca/intermediate
 pwd
 openssl ca -config openssl.cnf \
